@@ -1,2 +1,43 @@
-# Auto detect text files and perform LF normalization
+# Autimport tkinter as tk
+import random
+
+# Create window
+root = tk.Tk()
+root.title("Smart Monitor Display")
+root.geometry("400x300")
+root.configure(bg="lightblue")
+
+# Title
+title = tk.Label(root, text="SMART MONITOR", font=("Arial", 18, "bold"), bg="lightblue")
+title.pack(pady=10)
+
+# Labels
+temperature = tk.Label(root, font=("Arial", 14), bg="lightblue")
+humidity = tk.Label(root, font=("Arial", 14), bg="lightblue")
+status = tk.Label(root, font=("Arial", 14, "bold"), bg="lightblue")
+
+temperature.pack(pady=10)
+humidity.pack(pady=10)
+status.pack(pady=10)
+
+# Update function
+def update_data():
+    temp = random.randint(20, 40)
+    hum = random.randint(30, 90)
+
+    temperature.config(text=f"Temperature : {temp} °C")
+    humidity.config(text=f"Humidity : {hum} %")
+
+    if temp > 35:
+        status.config(text="Status : HIGH TEMPERATURE!", fg="red")
+    else:
+        status.config(text="Status : NORMAL", fg="green")
+
+    root.after(1000, update_data)
+
+# Start updating
+update_data()
+
+# Run application
+root.mainloop()So detect text files and perform LF normalization
 * text=auto
